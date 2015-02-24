@@ -49,3 +49,6 @@ Set.prototype.toJSON = function(){
 There might be a web compat concern if code using native Map and Set or polyfill relies on the current JSON.stringify behavior.
 
 
+# Licence
+
+This work is dedicated to the public domain. It is [CC0 licenced](https://creativecommons.org/publicdomain/zero/1.0/).
