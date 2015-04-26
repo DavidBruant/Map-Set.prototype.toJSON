@@ -25,12 +25,8 @@ This proposal is about providing a sensitive default to the common operation of 
 For now in JS (instead of in spec prose), the essence of the proposal is captured in this snippet:
 
 ````js
-Map.prototype.toJSON = function(){
-  var o = Object.create(null); // to avoid __proto__ nonsense
-  for(let [k, v] of this.entries()){
-    o[k] = v;
-  }
-  return o;
+Map.prototype.toJSON = function toJSON() {
+  return [...Map.prototype.entries.call(this)];
 }
 ````
 
@@ -39,8 +35,8 @@ Map.prototype.toJSON = function(){
 Same as above.
 
 ````js
-Set.prototype.toJSON = function(){
-  return [...this];
+Set.prototype.toJSON = function toJSON() {
+  return [...Set.prototype.values.call(this)];
 }
 ````
 
