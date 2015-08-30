@@ -1,6 +1,6 @@
 # Map.prototype.toJSON ( )
 
-This function provides an Array representation of a Map object for use by `JSON-stringify`.
+This function provides an Array representation of a Map object for use by [JSON.stringify][json-stringify] ([24.3.2][json-stringify].
 
 When the **toJSON** method is called, the following steps are taken:
 
@@ -24,11 +24,11 @@ When the **toJSON** method is called, the following steps are taken:
   1. If *defineStatus* is an abrupt completion, return IteratorClose(*entries*, *defineStatus*).
   1. Increase *k* by 1.
 
-The `length` property of the `toJSON` method is **0**.
+The **length** property of the **toJSON** method is **0**.
 
 # Set.prototype.toJSON ( )
 
-This function provides an Array representation of a Map object for use by `JSON-stringify`.
+This function provides an Array representation of a Set object for use by [JSON.stringify][json-stringify] ([24.3.2][json-stringify].
 
 When the **toJSON** method is called, the following steps are taken:
 
@@ -52,4 +52,6 @@ When the **toJSON** method is called, the following steps are taken:
   1. If *defineStatus* is an abrupt completion, return IteratorClose(*values*, *defineStatus*).
   1. Increase *k* by 1.
 
-The `length` property of the `toJSON` method is **0**.
+The **length** property of the **toJSON** method is **0**.
+
+[json-stringify]: http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify
