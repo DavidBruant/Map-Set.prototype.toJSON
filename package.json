@@ -1,0 +1,34 @@
+{
+	"name": "ecma-proposal-map-set-prototype-tojson",
+	"version": "0.0.0",
+	"description": "ES7 spec proposal for Map#toJSON / Set#toJSON",
+	"scripts": {
+		"build": "ecmarkup spec.emu --js=spec.js --css=spec.css | js-beautify -f - --type=html -t > index.html",
+		"prepublish": "npm run build && echo >&2 'no publishing' && exit 255"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DavidBruant/Map-Set.prototype.toJSON.git"
+	},
+	"keywords": [
+		"Map",
+		"Set",
+		"values",
+		"entries",
+		"toJSON",
+		"JSON",
+		"stringify",
+		"spec"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/DavidBruant/Map-Set.prototype.toJSON/issues"
+	},
+	"homepage": "https://github.com/DavidBruant/Map-Set.prototype.toJSON#readme",
+	"dependencies": {},
+	"devDependencies": {
+		"ecmarkup": "^2.1.0",
+		"js-beautify": "^1.5.10",
+		"tape": "^4.2.0"
+	}
+}

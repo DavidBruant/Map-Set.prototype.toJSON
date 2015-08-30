@@ -1,0 +1,118 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf8">
+	<title>String.prototype.padLeft / padRight</title>
+	<link rel="stylesheet" href="./spec.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<script src="./spec.js"></script>
+</head>
+
+<body>
+	<div id="menu-toggle">☰</div>
+	<div id="menu">
+		<div id="menu-toc">
+			<ol class="toc">
+				<li><span class="item-toggle-none"></span><a href="#Map.prototype.toJSON" title="Map.prototype.toJSON ( )"><span class="secnum">1</span> Map.prototype.toJSON ( )</a></li>
+				<li><span class="item-toggle-none"></span><a href="#Set.prototype.toJSON" title="Set.prototype.toJSON ( )"><span class="secnum">2</span> Set.prototype.toJSON ( )</a></li>
+			</ol>
+		</div>
+	</div>
+	<emu-clause id="Map.prototype.toJSON">
+		<h1><span class="secnum">1</span>Map.prototype.toJSON ( )<span class="utils"><span class="anchor"><a href="#Map.prototype.toJSON">#</a></span></span></h1>
+		<p>This function provides an Array representation of a Map object for use by <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify">JSON.stringify</a>.</p>
+		<p>
+		</p>
+		<p>When the
+			<emu-val>toJSON</emu-val> method is called, the following steps are taken:</p>
+		<emu-alg>
+			<ol>
+				<li>Let <var>M</var> be the
+					<emu-val>this</emu-val> value.</li>
+				<li>Let <var>entries</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createmapiterator">CreateMapIterator</a>(<var>M</var>,
+					<emu-val>"key+value"</emu-val>)</li>
+				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>entries</var>).</li>
+				<li>Let <var>A</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-arraycreate">ArrayCreate</a>(
+					<emu-val>0</emu-val>).</li>
+				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>A</var>).</li>
+				<li>Let <var>k</var> be
+					<emu-val>0</emu-val>.</li>
+				<li>Repeat
+					<ol>
+						<li>Let <var>Pk</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring">ToString</a>(<var>k</var>).</li>
+						<li>Let <var>next</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorstep">IteratorStep</a>(<var>entries</var>).</li>
+						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>next</var>).</li>
+						<li>If <var>next</var> is
+							<emu-val>false</emu-val>, then
+							<ol>
+								<li>Let <var>setStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-set-o-p-v-throw">Set</a>(<var>A</var>, "length", <var>k</var>,
+									<emu-val>true</emu-val>).</li>
+								<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>setStatus</var>).</li>
+								<li>Return <var>A</var>.</li>
+							</ol>
+						</li>
+						<li>Let <var>nextValue</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorvalue">IteratorValue</a>(<var>next</var>).</li>
+						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>nextValue</var>).</li>
+						<li>Let <var>defineStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
+						<li>If <var>defineStatus</var> is an
+							<emu-xref href="#sec-completion-record-specification-type"><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorclose">IteratorClose</a>(<var>entries</var>, <var>defineStatus</var>).</li>
+						<li>Increase <var>k</var> by 1.</li>
+					</ol>
+				</li>
+			</ol>
+		</emu-alg>
+		<emu-note><span class="note">Note</span>The
+			<emu-val>length</emu-val> property of the
+			<emu-val>toJSON</emu-val> method is
+			<emu-val>0</emu-val>.</emu-note>
+	</emu-clause>
+
+	<emu-clause id="Set.prototype.toJSON">
+		<h1><span class="secnum">2</span>Set.prototype.toJSON ( )<span class="utils"><span class="anchor"><a href="#Set.prototype.toJSON">#</a></span></span></h1>
+		<p>This function provides an Array representation of a Set object for use by <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify">JSON.stringify</a>.</p>
+		<p>
+		</p>
+		<p>When the
+			<emu-val>toJSON</emu-val> method is called, the following steps are taken:</p>
+		<emu-alg>
+			<ol>
+				<li>Let <var>S</var> be the
+					<emu-val>this</emu-val> value.</li>
+				<li>Let <var>values</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createsetiterator">CreateSetIterator</a>(<var>S</var>,
+					<emu-val>"value"</emu-val>)</li>
+				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>values</var>).</li>
+				<li>Let <var>A</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-arraycreate">ArrayCreate</a>(
+					<emu-val>0</emu-val>).</li>
+				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>A</var>).</li>
+				<li>Let <var>k</var> be
+					<emu-val>0</emu-val>.</li>
+				<li>Repeat
+					<ol>
+						<li>Let <var>Pk</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring">ToString</a>(<var>k</var>).</li>
+						<li>Let <var>next</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorstep">IteratorStep</a>(<var>values</var>).</li>
+						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>next</var>).</li>
+						<li>If <var>next</var> is
+							<emu-val>false</emu-val>, then
+							<ol>
+								<li>Let )setStatus) be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-set-o-p-v-throw">Set</a>()A), "length", )k),
+									<emu-val>true</emu-val>).</li>
+								<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>setStatus</var>).</li>
+								<li>Return <var>A</var>.</li>
+							</ol>
+						</li>
+						<li>Let <var>nextValue</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorvalue">IteratorValue</a>(<var>next</var>).</li>
+						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>nextValue</var>).</li>
+						<li>Let <var>defineStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
+						<li>If <var>defineStatus</var> is an
+							<emu-xref href="#sec-completion-record-specification-type"><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorclose">IteratorClose</a>(<var>values</var>, <var>defineStatus</var>).</li>
+						<li>Increase <var>k</var> by 1.</li>
+					</ol>
+				</li>
+			</ol>
+		</emu-alg>
+		<emu-note><span class="note">Note</span>The
+			<emu-val>length</emu-val> property of the
+			<emu-val>toJSON</emu-val> method is
+			<emu-val>0</emu-val>.</emu-note>
+	</emu-clause>
+</body>
