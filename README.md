@@ -22,7 +22,7 @@ This proposal is about providing a sensitive default to the common operation of 
 
 ### Map.prototype.toJSON
 
-The essence of the proposal is captured in this snippet ([spec](spec.md#mapprototypetojson--)):
+The essence of the proposal is captured in this snippet (spec in [markdown](spec.md#mapprototypetojson--) or [HTML](http://davidbruant.github.io/Map-Set.prototype.toJSON/#Map.prototype.toJSON)):
 
 ````js
 Map.prototype.toJSON = function toJSON() {
@@ -32,7 +32,7 @@ Map.prototype.toJSON = function toJSON() {
 
 ### Set.prototype.toJSON
 
-The essence of the proposal is captured in this snippet ([spec](spec.md#setprototypetojson--)):
+The essence of the proposal is captured in this snippet (spec in [markdown](spec.md#setprototypetojson--) or [HTML](http://davidbruant.github.io/Map-Set.prototype.toJSON/#Set.prototype.toJSON)):
 
 ````js
 Set.prototype.toJSON = function toJSON() {
