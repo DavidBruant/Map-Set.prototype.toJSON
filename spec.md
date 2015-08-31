@@ -1,6 +1,6 @@
 # Map.prototype.toJSON ( )
 
-This function provides an Array representation of a Map object for use by [JSON.stringify][json-stringify] ([24.3.2][json-stringify].
+This function provides an Array representation of a Map object for use by [JSON.stringify][json-stringify] ([24.3.2][json-stringify]).
 
 When the **toJSON** method is called, the following steps are taken:
 
@@ -28,7 +28,7 @@ The **length** property of the **toJSON** method is **0**.
 
 # Set.prototype.toJSON ( )
 
-This function provides an Array representation of a Set object for use by [JSON.stringify][json-stringify] ([24.3.2][json-stringify].
+This function provides an Array representation of a Set object for use by [JSON.stringify][json-stringify] ([24.3.2][json-stringify]).
 
 When the **toJSON** method is called, the following steps are taken:
 
