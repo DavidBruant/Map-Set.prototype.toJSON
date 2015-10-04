@@ -1,9 +1,13 @@
 <!doctype html>
 <meta charset="utf8">
-<title>String.prototype.padLeft / padRight</title>
 <link rel="stylesheet" href="./spec.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 <script src="./spec.js"></script>
+<pre class="metadata">
+title: Map.prototype.toJSON / Set.prototype.toJSON
+stage: 0
+contributors: David Bruant, Jordan Harband
+</pre>
 <emu-clause id="Map.prototype.toJSON">
 	<h1>Map.prototype.toJSON ( )</h1>
 	<p>This function provides an Array representation of a Map object for use by <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify">JSON.stringify</a>.<p>

@@ -1,11 +1,11 @@
 <!doctype html>
 
 <head>
-	<meta charset="utf8">
-	<title>String.prototype.padLeft / padRight</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="./spec.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 	<script src="./spec.js"></script>
+	<title>Map.prototype.toJSON / Set.prototype.toJSON</title>
 </head>
 
 <body>
@@ -15,9 +15,12 @@
 			<ol class="toc">
 				<li><span class="item-toggle-none"></span><a href="#Map.prototype.toJSON" title="Map.prototype.toJSON ( )"><span class="secnum">1</span> Map.prototype.toJSON ( )</a></li>
 				<li><span class="item-toggle-none"></span><a href="#Set.prototype.toJSON" title="Set.prototype.toJSON ( )"><span class="secnum">2</span> Set.prototype.toJSON ( )</a></li>
+				<li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">A</span> Copyright &amp; Software License</a></li>
 			</ol>
 		</div>
 	</div>
+	<h1 class="version">Stage 0 Draft / October 4, 2015</h1>
+	<h1 class="title">Map.prototype.toJSON / Set.prototype.toJSON</h1>
 	<emu-clause id="Map.prototype.toJSON">
 		<h1><span class="secnum">1</span>Map.prototype.toJSON ( )<span class="utils"><span class="anchor"><a href="#Map.prototype.toJSON">#</a></span></span></h1>
 		<p>This function provides an Array representation of a Map object for use by <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify">JSON.stringify</a>.</p>
@@ -56,7 +59,8 @@
 						<li>Let <var>defineStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
 						<li>If <var>defineStatus</var> is an
 							<emu-xref href="#sec-completion-record-specification-type"><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorclose">IteratorClose</a>(<var>entries</var>, <var>defineStatus</var>).</li>
-						<li>Increase <var>k</var> by 1.</li>
+						<li>Increase <var>k</var> by 1.
+						</li>
 					</ol>
 				</li>
 			</ol>
@@ -105,7 +109,8 @@
 						<li>Let <var>defineStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
 						<li>If <var>defineStatus</var> is an
 							<emu-xref href="#sec-completion-record-specification-type"><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorclose">IteratorClose</a>(<var>values</var>, <var>defineStatus</var>).</li>
-						<li>Increase <var>k</var> by 1.</li>
+						<li>Increase <var>k</var> by 1.
+						</li>
 					</ol>
 				</li>
 			</ol>
@@ -115,4 +120,24 @@
 			<emu-val>toJSON</emu-val> method is
 			<emu-val>0</emu-val>.</emu-note>
 	</emu-clause>
+	<emu-annex id="sec-copyright-and-software-license">
+		<h1><span class="secnum">A</span>Copyright &amp; Software License<span class="utils"><span class="anchor"><a href="#sec-copyright-and-software-license">#</a></span></span></h1>
+
+		<h2>Copyright Notice</h2>
+		<p>© 2015 David Bruant, Jordan Harband</p>
+
+		<h2>Software License</h2>
+		<p>All Software contained in this document ("Software") is protected by copyright and is being made available under the "BSD License", included below. This Software may be subject to third party rights (rights from parties other than Ecma International), including patent rights, and no licenses under such third party rights are granted under this license even if the third party concerned is a member of Ecma International. SEE THE ECMA CODE OF CONDUCT IN PATENT MATTERS AVAILABLE AT http://www.ecma-international.org/memento/codeofconduct.htm FOR INFORMATION REGARDING THE LICENSING OF PATENT CLAIMS THAT ARE REQUIRED TO IMPLEMENT ECMA INTERNATIONAL STANDARDS.</p>
+
+		<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+
+		<ol>
+			<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+			<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+			<li>Neither the name of the authors nor Ecma International may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+		</ol>
+
+		<p>THIS SOFTWARE IS PROVIDED BY THE ECMA INTERNATIONAL "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL ECMA INTERNATIONAL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+	</emu-annex>
 </body>
