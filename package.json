@@ -27,8 +27,8 @@
 	"homepage": "https://github.com/DavidBruant/Map-Set.prototype.toJSON#readme",
 	"dependencies": {},
 	"devDependencies": {
-		"ecmarkup": "^2.1.0",
+		"ecmarkup": "^2.5.4",
 		"js-beautify": "^1.5.10",
-		"tape": "^4.2.0"
+		"tape": "^4.2.1"
 	}
 }
