@@ -18,7 +18,7 @@ This result is unhelpful. Same goes for Map.
 
 ## Proposal
 
-This proposal is about providing a sensitive default to the common operation of JSON serialization via default `toJSON` implementations on `Set.prototype` and `Map.prototype`. Of course, userland code can always shadow this value on specific instances.
+This proposal is about providing a sensible default to the common operation of JSON serialization via default `toJSON` implementations on `Set.prototype` and `Map.prototype`. Of course, userland code can always shadow this value on specific instances.
 
 ### Map.prototype.toJSON
 
