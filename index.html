@@ -6,11 +6,44 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 	<script src="./spec.js"></script>
 	<title>Map.prototype.toJSON / Set.prototype.toJSON</title>
+	<script type="application/json" id="menu-search-biblio">
+		[{
+			"type": "clause",
+			"id": "Map.prototype.toJSON",
+			"aoid": null,
+			"title": "Map.prototype.toJSON ( )",
+			"number": "1",
+			"namespace": "<no location>",
+			"location": "",
+			"key": "Map.prototype.toJSON ( )"
+		}, {
+			"type": "clause",
+			"id": "Set.prototype.toJSON",
+			"aoid": null,
+			"title": "Set.prototype.toJSON ( )",
+			"number": "2",
+			"namespace": "<no location>",
+			"location": "",
+			"key": "Set.prototype.toJSON ( )"
+		}, {
+			"type": "clause",
+			"id": "sec-copyright-and-software-license",
+			"aoid": null,
+			"title": "Copyright & Software License",
+			"number": "A",
+			"namespace": "<no location>",
+			"location": "",
+			"key": "Copyright & Software License"
+		}]
+	</script>
 </head>
 
 <body>
 	<div id="menu-toggle">☰</div>
 	<div id="menu">
+		<div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search...">
+			<div id="menu-search-results" class="inactive"></div>
+		</div>
 		<div id="menu-toc">
 			<ol class="toc">
 				<li><span class="item-toggle-none"></span><a href="#Map.prototype.toJSON" title="Map.prototype.toJSON ( )"><span class="secnum">1</span> Map.prototype.toJSON ( )</a></li>
@@ -19,7 +52,7 @@
 			</ol>
 		</div>
 	</div>
-	<h1 class="version">Stage 0 Draft / October 4, 2015</h1>
+	<h1 class="version">Stage 0 Draft / March 28, 2016</h1>
 	<h1 class="title">Map.prototype.toJSON / Set.prototype.toJSON</h1>
 	<emu-clause id="Map.prototype.toJSON">
 		<h1><span class="secnum">1</span>Map.prototype.toJSON ( )<span class="utils"><span class="anchor"><a href="#Map.prototype.toJSON">#</a></span></span></h1>
@@ -32,33 +65,36 @@
 			<ol>
 				<li>Let <var>M</var> be the
 					<emu-val>this</emu-val> value.</li>
-				<li>Let <var>entries</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createmapiterator">CreateMapIterator</a>(<var>M</var>,
+				<li>Let <var>entries</var> be ?
+					<emu-xref aoid="CreateMapIterator"><a href="https://tc39.github.io/ecma262/#sec-createmapiterator">CreateMapIterator</a></emu-xref>(<var>M</var>,
 					<emu-val>"key+value"</emu-val>)</li>
-				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>entries</var>).</li>
-				<li>Let <var>A</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-arraycreate">ArrayCreate</a>(
+				<li>Let <var>A</var> be !
+					<emu-xref aoid="ArrayCreate"><a href="https://tc39.github.io/ecma262/#sec-arraycreate">ArrayCreate</a></emu-xref>(
 					<emu-val>0</emu-val>).</li>
-				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>A</var>).</li>
 				<li>Let <var>k</var> be
 					<emu-val>0</emu-val>.</li>
 				<li>Repeat
 					<ol>
-						<li>Let <var>Pk</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring">ToString</a>(<var>k</var>).</li>
-						<li>Let <var>next</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorstep">IteratorStep</a>(<var>entries</var>).</li>
-						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>next</var>).</li>
+						<li>Let <var>Pk</var> be !
+							<emu-xref aoid="ToString"><a href="https://tc39.github.io/ecma262/#sec-tostring">ToString</a></emu-xref>(<var>k</var>).</li>
+						<li>Let <var>next</var> be ?
+							<emu-xref aoid="IteratorStep"><a href="https://tc39.github.io/ecma262/#sec-iteratorstep">IteratorStep</a></emu-xref>(<var>entries</var>).</li>
 						<li>If <var>next</var> is
 							<emu-val>false</emu-val>, then
 							<ol>
-								<li>Let <var>setStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-set-o-p-v-throw">Set</a>(<var>A</var>, "length", <var>k</var>,
+								<li>Perform ?
+									<emu-xref aoid="Set"><a href="https://tc39.github.io/ecma262/#sec-set-o-p-v-throw">Set</a></emu-xref>(<var>A</var>, "length", <var>k</var>,
 									<emu-val>true</emu-val>).</li>
-								<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>setStatus</var>).</li>
 								<li>Return <var>A</var>.</li>
 							</ol>
 						</li>
-						<li>Let <var>nextValue</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorvalue">IteratorValue</a>(<var>next</var>).</li>
-						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>nextValue</var>).</li>
-						<li>Let <var>defineStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
+						<li>Let <var>nextValue</var> be ?
+							<emu-xref aoid="IteratorValue"><a href="https://tc39.github.io/ecma262/#sec-iteratorvalue">IteratorValue</a></emu-xref>(<var>next</var>).</li>
+						<li>Let <var>defineStatus</var> be
+							<emu-xref aoid="CreateDataPropertyOrThrow"><a href="https://tc39.github.io/ecma262/#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a></emu-xref>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
 						<li>If <var>defineStatus</var> is an
-							<emu-xref href="#sec-completion-record-specification-type"><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorclose">IteratorClose</a>(<var>entries</var>, <var>defineStatus</var>).</li>
+							<emu-xref href="#sec-completion-record-specification-type"><a href="https://tc39.github.io/ecma262/#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return
+							<emu-xref aoid="IteratorClose"><a href="https://tc39.github.io/ecma262/#sec-iteratorclose">IteratorClose</a></emu-xref>(<var>entries</var>, <var>defineStatus</var>).</li>
 						<li>Increase <var>k</var> by 1.
 						</li>
 					</ol>
@@ -82,33 +118,36 @@
 			<ol>
 				<li>Let <var>S</var> be the
 					<emu-val>this</emu-val> value.</li>
-				<li>Let <var>values</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createsetiterator">CreateSetIterator</a>(<var>S</var>,
+				<li>Let <var>values</var> be ?
+					<emu-xref aoid="CreateSetIterator"><a href="https://tc39.github.io/ecma262/#sec-createsetiterator">CreateSetIterator</a></emu-xref>(<var>S</var>,
 					<emu-val>"value"</emu-val>)</li>
-				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>values</var>).</li>
-				<li>Let <var>A</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-arraycreate">ArrayCreate</a>(
+				<li>Let <var>A</var> be !
+					<emu-xref aoid="ArrayCreate"><a href="https://tc39.github.io/ecma262/#sec-arraycreate">ArrayCreate</a></emu-xref>(
 					<emu-val>0</emu-val>).</li>
-				<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>A</var>).</li>
 				<li>Let <var>k</var> be
 					<emu-val>0</emu-val>.</li>
 				<li>Repeat
 					<ol>
-						<li>Let <var>Pk</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-tostring">ToString</a>(<var>k</var>).</li>
-						<li>Let <var>next</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorstep">IteratorStep</a>(<var>values</var>).</li>
-						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>next</var>).</li>
+						<li>Let <var>Pk</var> be !
+							<emu-xref aoid="ToString"><a href="https://tc39.github.io/ecma262/#sec-tostring">ToString</a></emu-xref>(<var>k</var>).</li>
+						<li>Let <var>next</var> be ?
+							<emu-xref aoid="IteratorStep"><a href="https://tc39.github.io/ecma262/#sec-iteratorstep">IteratorStep</a></emu-xref>(<var>values</var>).</li>
 						<li>If <var>next</var> is
 							<emu-val>false</emu-val>, then
 							<ol>
-								<li>Let )setStatus) be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-set-o-p-v-throw">Set</a>()A), "length", )k),
+								<li>Perform ?
+									<emu-xref aoid="Set"><a href="https://tc39.github.io/ecma262/#sec-set-o-p-v-throw">Set</a></emu-xref>(<var>A</var>, "length", <var>k</var>,
 									<emu-val>true</emu-val>).</li>
-								<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>setStatus</var>).</li>
 								<li>Return <var>A</var>.</li>
 							</ol>
 						</li>
-						<li>Let <var>nextValue</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorvalue">IteratorValue</a>(<var>next</var>).</li>
-						<li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-returnifabrupt">ReturnIfAbrupt</a>(<var>nextValue</var>).</li>
-						<li>Let <var>defineStatus</var> be <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
+						<li>Let <var>nextValue</var> be ?
+							<emu-xref aoid="IteratorValue"><a href="https://tc39.github.io/ecma262/#sec-iteratorvalue">IteratorValue</a></emu-xref>(<var>next</var>).</li>
+						<li>Let <var>defineStatus</var> be
+							<emu-xref aoid="CreateDataPropertyOrThrow"><a href="https://tc39.github.io/ecma262/#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a></emu-xref>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
 						<li>If <var>defineStatus</var> is an
-							<emu-xref href="#sec-completion-record-specification-type"><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-iteratorclose">IteratorClose</a>(<var>values</var>, <var>defineStatus</var>).</li>
+							<emu-xref href="#sec-completion-record-specification-type"><a href="https://tc39.github.io/ecma262/#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return
+							<emu-xref aoid="IteratorClose"><a href="https://tc39.github.io/ecma262/#sec-iteratorclose">IteratorClose</a></emu-xref>(<var>values</var>, <var>defineStatus</var>).</li>
 						<li>Increase <var>k</var> by 1.
 						</li>
 					</ol>
@@ -124,7 +163,7 @@
 		<h1><span class="secnum">A</span>Copyright &amp; Software License<span class="utils"><span class="anchor"><a href="#sec-copyright-and-software-license">#</a></span></span></h1>
 
 		<h2>Copyright Notice</h2>
-		<p>© 2015 David Bruant, Jordan Harband</p>
+		<p>© 2016 David Bruant, Jordan Harband</p>
 
 		<h2>Software License</h2>
 		<p>All Software contained in this document ("Software") is protected by copyright and is being made available under the "BSD License", included below. This Software may be subject to third party rights (rights from parties other than Ecma International), including patent rights, and no licenses under such third party rights are granted under this license even if the third party concerned is a member of Ecma International. SEE THE ECMA CODE OF CONDUCT IN PATENT MATTERS AVAILABLE AT http://www.ecma-international.org/memento/codeofconduct.htm FOR INFORMATION REGARDING THE LICENSING OF PATENT CLAIMS THAT ARE REQUIRED TO IMPLEMENT ECMA INTERNATIONAL STANDARDS.</p>
