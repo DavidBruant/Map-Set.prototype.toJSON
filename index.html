@@ -56,7 +56,7 @@
 	<h1 class="title">Map.prototype.toJSON / Set.prototype.toJSON</h1>
 	<emu-clause id="Map.prototype.toJSON">
 		<h1><span class="secnum">1</span>Map.prototype.toJSON ( )<span class="utils"><span class="anchor"><a href="#Map.prototype.toJSON">#</a></span></span></h1>
-		<p>This function provides an Array representation of a Map object for use by <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify">JSON.stringify</a>.</p>
+		<p>This function provides an Array representation of an iterable object for use by <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify">JSON.stringify</a>.</p>
 		<p>
 		</p>
 		<p>When the
@@ -65,9 +65,8 @@
 			<ol>
 				<li>Let <var>M</var> be the
 					<emu-val>this</emu-val> value.</li>
-				<li>Let <var>entries</var> be ?
-					<emu-xref aoid="CreateMapIterator"><a href="https://tc39.github.io/ecma262/#sec-createmapiterator">CreateMapIterator</a></emu-xref>(<var>M</var>,
-					<emu-val>"key+value"</emu-val>)</li>
+				<li>Let <var>iterator</var> be ?
+					<emu-xref aoid="GetIterator"><a href="https://tc39.github.io/ecma262/#sec-getiterator">GetIterator</a></emu-xref>(<var>M</var>)</li>
 				<li>Let <var>A</var> be !
 					<emu-xref aoid="ArrayCreate"><a href="https://tc39.github.io/ecma262/#sec-arraycreate">ArrayCreate</a></emu-xref>(
 					<emu-val>0</emu-val>).</li>
@@ -78,7 +77,7 @@
 						<li>Let <var>Pk</var> be !
 							<emu-xref aoid="ToString"><a href="https://tc39.github.io/ecma262/#sec-tostring">ToString</a></emu-xref>(<var>k</var>).</li>
 						<li>Let <var>next</var> be ?
-							<emu-xref aoid="IteratorStep"><a href="https://tc39.github.io/ecma262/#sec-iteratorstep">IteratorStep</a></emu-xref>(<var>entries</var>).</li>
+							<emu-xref aoid="IteratorStep"><a href="https://tc39.github.io/ecma262/#sec-iteratorstep">IteratorStep</a></emu-xref>(<var>iterator</var>).</li>
 						<li>If <var>next</var> is
 							<emu-val>false</emu-val>, then
 							<ol>
@@ -94,7 +93,7 @@
 							<emu-xref aoid="CreateDataPropertyOrThrow"><a href="https://tc39.github.io/ecma262/#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a></emu-xref>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
 						<li>If <var>defineStatus</var> is an
 							<emu-xref href="#sec-completion-record-specification-type"><a href="https://tc39.github.io/ecma262/#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return
-							<emu-xref aoid="IteratorClose"><a href="https://tc39.github.io/ecma262/#sec-iteratorclose">IteratorClose</a></emu-xref>(<var>entries</var>, <var>defineStatus</var>).</li>
+							<emu-xref aoid="IteratorClose"><a href="https://tc39.github.io/ecma262/#sec-iteratorclose">IteratorClose</a></emu-xref>(<var>iterator</var>, <var>defineStatus</var>).</li>
 						<li>Increase <var>k</var> by 1.
 						</li>
 					</ol>
@@ -109,55 +108,9 @@
 
 	<emu-clause id="Set.prototype.toJSON">
 		<h1><span class="secnum">2</span>Set.prototype.toJSON ( )<span class="utils"><span class="anchor"><a href="#Set.prototype.toJSON">#</a></span></span></h1>
-		<p>This function provides an Array representation of a Set object for use by <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-json.stringify">JSON.stringify</a>.</p>
-		<p>
-		</p>
-		<p>When the
-			<emu-val>toJSON</emu-val> method is called, the following steps are taken:</p>
-		<emu-alg>
-			<ol>
-				<li>Let <var>S</var> be the
-					<emu-val>this</emu-val> value.</li>
-				<li>Let <var>values</var> be ?
-					<emu-xref aoid="CreateSetIterator"><a href="https://tc39.github.io/ecma262/#sec-createsetiterator">CreateSetIterator</a></emu-xref>(<var>S</var>,
-					<emu-val>"value"</emu-val>)</li>
-				<li>Let <var>A</var> be !
-					<emu-xref aoid="ArrayCreate"><a href="https://tc39.github.io/ecma262/#sec-arraycreate">ArrayCreate</a></emu-xref>(
-					<emu-val>0</emu-val>).</li>
-				<li>Let <var>k</var> be
-					<emu-val>0</emu-val>.</li>
-				<li>Repeat
-					<ol>
-						<li>Let <var>Pk</var> be !
-							<emu-xref aoid="ToString"><a href="https://tc39.github.io/ecma262/#sec-tostring">ToString</a></emu-xref>(<var>k</var>).</li>
-						<li>Let <var>next</var> be ?
-							<emu-xref aoid="IteratorStep"><a href="https://tc39.github.io/ecma262/#sec-iteratorstep">IteratorStep</a></emu-xref>(<var>values</var>).</li>
-						<li>If <var>next</var> is
-							<emu-val>false</emu-val>, then
-							<ol>
-								<li>Perform ?
-									<emu-xref aoid="Set"><a href="https://tc39.github.io/ecma262/#sec-set-o-p-v-throw">Set</a></emu-xref>(<var>A</var>, "length", <var>k</var>,
-									<emu-val>true</emu-val>).</li>
-								<li>Return <var>A</var>.</li>
-							</ol>
-						</li>
-						<li>Let <var>nextValue</var> be ?
-							<emu-xref aoid="IteratorValue"><a href="https://tc39.github.io/ecma262/#sec-iteratorvalue">IteratorValue</a></emu-xref>(<var>next</var>).</li>
-						<li>Let <var>defineStatus</var> be
-							<emu-xref aoid="CreateDataPropertyOrThrow"><a href="https://tc39.github.io/ecma262/#sec-createdatapropertyorthrow">CreateDataPropertyOrThrow</a></emu-xref>(<var>A</var>, <var>Pk</var>, <var>nextValue</var>).</li>
-						<li>If <var>defineStatus</var> is an
-							<emu-xref href="#sec-completion-record-specification-type"><a href="https://tc39.github.io/ecma262/#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, return
-							<emu-xref aoid="IteratorClose"><a href="https://tc39.github.io/ecma262/#sec-iteratorclose">IteratorClose</a></emu-xref>(<var>values</var>, <var>defineStatus</var>).</li>
-						<li>Increase <var>k</var> by 1.
-						</li>
-					</ol>
-				</li>
-			</ol>
-		</emu-alg>
-		<emu-note><span class="note">Note</span>The
-			<emu-val>length</emu-val> property of the
-			<emu-val>toJSON</emu-val> method is
-			<emu-val>0</emu-val>.</emu-note>
+		<p>The initial value of the
+			<emu-val>toJSON</emu-val> property is the same function object as the initial value of the
+			<emu-val>Map.prototype.toJSON</emu-val> property.</p>
 	</emu-clause>
 	<emu-annex id="sec-copyright-and-software-license">
 		<h1><span class="secnum">A</span>Copyright &amp; Software License<span class="utils"><span class="anchor"><a href="#sec-copyright-and-software-license">#</a></span></span></h1>
