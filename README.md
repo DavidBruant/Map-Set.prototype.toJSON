@@ -1,7 +1,8 @@
 # Map-Set.prototype.toJSON
 
-An [ECMAScript](https://github.com/tc39/ecma262) proposal. Currently at **Stage 0**.
+An [ECMAScript](https://github.com/tc39/ecma262) proposal. ~~Currently at **Stage 0**.~~
 
+This proposal was brought before the committee in the March 2016 meeting, and thoroughly rejected.
 
 ## Problem
 
