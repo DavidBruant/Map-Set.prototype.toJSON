@@ -2,7 +2,7 @@
 
 An [ECMAScript](https://github.com/tc39/ecma262) proposal. ~~Currently at **Stage 0**.~~
 
-This proposal was brought before the committee in the March 2016 meeting, and thoroughly rejected.
+This proposal was brought before the committee in the March 2016 meeting, and thoroughly rejected. [Details](https://github.com/DavidBruant/Map-Set.prototype.toJSON/issues/16)
 
 ## Problem
 
